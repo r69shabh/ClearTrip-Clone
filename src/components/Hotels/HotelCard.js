@@ -5,6 +5,11 @@ const HotelCard = ({ hotel }) => {
   // Select the first image from the images array
   const imageUrl = hotel.images.length > 0 ? hotel.images[0] : '';
 
+  // Assuming you want to use the first room's cost details for displaying prices
+  const firstRoomCostDetails = hotel.rooms.length > 0 ? hotel.rooms[0].costDetails : { baseCost: 0, taxesAndFees: 0 };
+  const baseCost = firstRoomCostDetails.baseCost;
+  const taxesAndFees = firstRoomCostDetails.taxesAndFees;
+
   return (
     <div className="flex flex-col max-w-[288px]">
       <div className="flex overflow-hidden relative flex-col justify-end pt-20 w-full aspect-[1.2]">
@@ -35,11 +40,11 @@ const HotelCard = ({ hotel }) => {
         </div>
       </div>
       <div className="flex gap-1.5 px-5 mt-4">
-      <div className="text-base font-semibold leading-6 text-zinc-900">
-        ₹{parseFloat(hotel.avgCostPerNight).toFixed(2)}
-      </div>
+        <div className="text-base font-semibold leading-6 text-zinc-900">
+          ₹{parseFloat(baseCost).toFixed(2)}
+        </div>
         <div className="flex-auto text-xs leading-4 text-zinc-500">
-          + tax<span className="text-zinc-500"> / night</span>
+          + ₹{parseFloat(taxesAndFees).toFixed(2)} tax<span className="text-zinc-500"> / night</span>
         </div>
       </div>
     </div>
