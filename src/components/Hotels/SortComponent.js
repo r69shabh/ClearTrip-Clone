@@ -17,12 +17,12 @@ const SortComponent = ({ onSort }) => {
   };
 
   return (
-    <div className="flex gap-5 justify-between items-start px-4 py-3.5 text-base leading-6 whitespace-nowrap bg-white rounded-3xl border-2 border-solid border-zinc-300 max-w-[260px] text-zinc-900">
-      <div className="my-auto">Sort</div>
+    <div className="flex gap-4 items-center px-6 py-3 bg-white rounded-lg shadow-md border border-gray-200">
+      <div className="text-lg font-semibold text-gray-700">Sort by:</div>
       <select
         value={sortOption}
         onChange={handleSortChange}
-        className="shrink-0 self-start w-full aspect-[0.88] h-10 text-lg"
+        className="px-3 py-2 text-base text-gray-700 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
       >
         <option value="">Select sort option</option>
         {sortOptions.map((option, index) => (

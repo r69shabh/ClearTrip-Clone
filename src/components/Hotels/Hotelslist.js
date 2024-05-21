@@ -69,8 +69,8 @@ const HotelsList = () => {
     <div className="container mx-auto mt-6">
       <div className="flex flex-col items-center space-y-4">
         <SearchPanel onSearch={handleSearch} />
-        <div className="flex justify-between w-full max-w-3xl px-4">
-          <div className="text-base text-gray-700">
+        <div className="flex justify-between items-center w-full max-w-3xl px-4">
+          <div className="text-lg text-gray-700">
             {selectedCity.city_name && selectedCity.state_name 
               ? `Showing hotels from ${selectedCity.city_name}, ${selectedCity.state_name}`
               : 'Select a destination to see hotels'}
@@ -80,7 +80,7 @@ const HotelsList = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 px-4">
         {hotels.map((hotel, index) => (
           <HotelCard key={index} hotel={hotel} />
         ))}
