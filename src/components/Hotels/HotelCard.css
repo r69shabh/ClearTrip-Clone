@@ -1,0 +1,16 @@
+.hotel-card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .hotel-info {
+    padding: 15px;
+    background: white;
+  }
+  
+  .hotel-info h3 {
+    margin-top: 0;
+    color: #333;
+  }

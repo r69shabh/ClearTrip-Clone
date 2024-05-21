@@ -1,0 +1,21 @@
+.search-panel {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+  
+  .search-panel input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .search-panel button {
+    padding: 10px 20px;
+    background-color: #f40;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
