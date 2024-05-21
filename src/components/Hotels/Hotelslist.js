@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import SearchPanel from '../SearchPanel/SearchPanel';
 import SortComponent from './SortComponent';
 import HotelCard from './HotelCard';
+import Hotel from './Hotel'; // Import the new Hotel component
 
 const HotelsList = () => {
   const [selectedCity, setSelectedCity] = useState('');
   const [hotels, setHotels] = useState([]);
+  const [selectedHotelId, setSelectedHotelId] = useState(null); // State to keep track of the selected hotel ID
 
   const handleSearch = async (destination) => {
     const [city, state] = destination.split(', ');
@@ -65,26 +67,36 @@ const HotelsList = () => {
     }
   };
 
+  const handleHotelClick = (hotelId) => {
+    setSelectedHotelId(hotelId); // Set the selected hotel ID
+  };
+
   return (
     <div className="container mx-auto mt-6">
-      <div className="flex flex-col items-center space-y-4">
-        <SearchPanel onSearch={handleSearch} />
-        <div className="flex justify-between items-center w-full max-w-3xl px-4">
-          <div className="text-lg text-gray-700">
-            {selectedCity.city_name && selectedCity.state_name 
-              ? `Showing hotels from ${selectedCity.city_name}, ${selectedCity.state_name}`
-              : 'Select a destination to see hotels'}
+      {selectedHotelId ? (
+        <Hotel hotelId={selectedHotelId} />
+      ) : (
+        <>
+          <div className="flex flex-col items-center space-y-4">
+            <SearchPanel onSearch={handleSearch} />
+            <div className="flex justify-between items-center w-full max-w-3xl px-4">
+              <div className="text-lg text-gray-700">
+                {selectedCity.city_name && selectedCity.state_name 
+                  ? `Showing hotels from ${selectedCity.city_name}, ${selectedCity.state_name}`
+                  : 'Select a destination to see hotels'}
+              </div>
+              <div className="w-64">
+                <SortComponent onSort={handleSort} />
+              </div>
+            </div>
           </div>
-          <div className="w-64">
-            <SortComponent onSort={handleSort} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 px-4">
+            {hotels.map((hotel, index) => (
+              <HotelCard key={index} hotel={hotel} onClick={() => handleHotelClick(hotel.id)} />
+            ))}
           </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 px-4">
-        {hotels.map((hotel, index) => (
-          <HotelCard key={index} hotel={hotel} />
-        ))}
-      </div>
+        </>
+      )}
     </div>
   );
 };

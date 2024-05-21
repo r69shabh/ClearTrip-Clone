@@ -6,7 +6,7 @@ import MyComponent from './components/Authentication/Register';
 import HotelsList from './components/Hotels/Hotelslist';
 import SearchPanel from './components/SearchPanel/SearchPanel';
 import SortComponent from './components/Hotels/SortComponent';
-import HotelCard from './components/Hotels/HotelCard';
+import Hotel from './components/Hotels/Hotel';
 import './App.css';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Route path="/hotels" element={<HotelsList />} />
         <Route path='/search' element={<SearchPanel />} />
         <Route path='/sort' element={<SortComponent />} />
-        <Route path='/card' element={<HotelCard />} />
+        <Route path='/card' element={<Hotel />} />
       </Routes>
     </div>
   );
