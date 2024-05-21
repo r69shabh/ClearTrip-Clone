@@ -11,18 +11,18 @@ const HotelCard = ({ hotel }) => {
   const taxesAndFees = firstRoomCostDetails.taxesAndFees;
 
   return (
-    <div className="flex flex-col max-w-[288px]">
-      <div className="flex overflow-hidden relative flex-col justify-end pt-20 w-full aspect-[1.2]">
+    <div className="flex flex-col max-w-[288px] bg-white rounded-lg shadow-lg p-5">
+      <div className="flex overflow-hidden relative flex-col justify-end w-full aspect-[1.2] rounded-t-lg">
         <img
           loading="lazy"
           src={imageUrl}
           alt={hotel.name}
-          className="object-cover absolute inset-0 w-full h-full"
+          className="object-cover absolute inset-0 w-full h-full rounded-t-lg"
         />
         <div className="relative mt-32 w-full min-h-[31px]" />
       </div>
       <div className="flex gap-5 justify-between mt-2 w-full">
-        <div className="flex flex-col self-start px-5 mt-1">
+        <div className="flex flex-col self-start mt-1">
           <div className="text-sm font-semibold leading-5 text-zinc-900">
             {hotel.name}
           </div>
@@ -30,7 +30,7 @@ const HotelCard = ({ hotel }) => {
             {hotel.location}
           </div>
         </div>
-        <div className="flex flex-col px-5">
+        <div className="flex flex-col">
           <div className="justify-center self-end py-1.5 text-sm font-semibold leading-5 text-emerald-600 whitespace-nowrap bg-emerald-50 rounded">
             {hotel.rating}
           </div>
@@ -39,12 +39,12 @@ const HotelCard = ({ hotel }) => {
           </div>
         </div>
       </div>
-      <div className="flex gap-1.5 px-5 mt-4">
+      <div className="flex gap-1.5 mt-4">
         <div className="text-base font-semibold leading-6 text-zinc-900">
-          ₹{parseFloat(baseCost).toFixed(2)}
+          ₹{parseFloat(baseCost)}
         </div>
         <div className="flex-auto text-xs leading-4 text-zinc-500">
-          + ₹{parseFloat(taxesAndFees).toFixed(2)} tax<span className="text-zinc-500"> / night</span>
+          + ₹{parseFloat(taxesAndFees)} tax<span className="text-zinc-500"> / night</span>
         </div>
       </div>
     </div>
