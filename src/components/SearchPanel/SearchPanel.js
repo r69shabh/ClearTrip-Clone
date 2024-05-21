@@ -7,13 +7,17 @@ const SearchPanel = ({ onSearch }) => {
 
   useEffect(() => {
     const fetchLocations = async () => {
-      const response = await axios.get('https://academics.newtonschool.co/api/v1/bookingportals/city', {
-        headers: {
-          projectID: 'f104bi07c490'
-        },
-      });
+      try {
+        const response = await axios.get('https://academics.newtonschool.co/api/v1/bookingportals/city', {
+          headers: {
+            projectID: 'f104bi07c490'
+          },
+        });
 
-      setLocations(response.data.data.cities.map(city => city.cityState));
+        setLocations(response.data.data.cities.map(city => city.cityState));
+      } catch (error) {
+        console.error('Error fetching locations:', error);
+      }
     };
 
     fetchLocations();
@@ -46,7 +50,7 @@ const SearchPanel = ({ onSearch }) => {
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d6d4f6125f7997a445fb71d2dc845a7ea1bb655ba70b772c477839d6f638bc6?"
             className="shrink-0 w-6 aspect-square"
-            alt="test"
+            alt="search icon"
           />
         </button>
       </div>
