@@ -70,7 +70,7 @@ const HotelsList = () => {
   const handleHotelClick = (hotelId) => {
     setSelectedHotelId(hotelId); // Set the selected hotel ID
   };
-
+                                                          
   return (
     <div className="container mx-auto mt-6">
       {selectedHotelId ? (
@@ -100,5 +100,6 @@ const HotelsList = () => {
     </div>
   );
 };
+
 
 export default HotelsList;

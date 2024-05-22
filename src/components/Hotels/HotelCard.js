@@ -1,7 +1,9 @@
+// hotelcard.js
+
 import React from 'react';
 import './HotelCard.css';
 
-const HotelCard = ({ hotel }) => {
+const HotelCard = ({ hotel, onClick }) => {
   // Select the first image from the images array
   const imageUrl = hotel.images.length > 0 ? hotel.images[0] : '';
 
@@ -11,7 +13,7 @@ const HotelCard = ({ hotel }) => {
   const taxesAndFees = firstRoomCostDetails.taxesAndFees;
 
   return (
-    <div className="flex flex-col max-w-[288px] bg-white rounded-lg shadow-lg p-5">
+    <div className="flex flex-col max-w-[288px] bg-white rounded-lg shadow-lg p-5" onClick={onClick}>
       <div className="flex overflow-hidden relative flex-col justify-end w-full aspect-[1.2] rounded-t-lg">
         <img
           loading="lazy"
